@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.zzt8888.matrialdesign.MainActivity"
+    tools:context="com.zzt8888.materialdesign.main_ui.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
     <android.support.v4.view.ViewPager
-
+        android:id="@+id/main_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"

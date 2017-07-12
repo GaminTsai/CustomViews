@@ -1,4 +1,4 @@
-package com.zzt8888.matrialdesign;
+package com.zzt8888.materialdesign;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
