@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +18,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.zzt8888.materialdesign.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -34,6 +40,22 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initMainView() {
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.main_viewpager);
+        List<Fragment> list = new ArrayList<>();
+
+        SimpleFragment simpleFragment1 = new SimpleFragment();
+//        simpleFragment1.
+        SimpleFragment simpleFragment2 = new SimpleFragment();
+        SimpleFragment simpleFragment3 = new SimpleFragment();
+
+        list.add(simpleFragment1);
+        list.add(simpleFragment2);
+        list.add(simpleFragment3);
+
+        tabLayout.setupWithViewPager(viewPager, true);
+        SimpleFragmentAdapter adapter = new SimpleFragmentAdapter(getSupportFragmentManager(), list);
+        viewPager.setAdapter(adapter);
     }
 
     private void initNavigationView() {
