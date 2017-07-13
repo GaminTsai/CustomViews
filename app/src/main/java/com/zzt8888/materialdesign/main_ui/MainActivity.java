@@ -1,9 +1,7 @@
 package com.zzt8888.materialdesign.main_ui;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -13,35 +11,43 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
-import com.zzt8888.com.zzt888.base.BaseActivity;
+import com.zzt8888.base.BaseActivity;
 import com.zzt8888.materialdesign.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Toolbar toolbar;
+    @BindView(R.id.nav_view)
+    NavigationView navView;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.tab_layout)
+    TabLayout tabLayout;
+    @BindView(R.id.main_viewpager)
+    ViewPager mainViewpager;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         initDrawLayout();
-        initFloatingActionButton();
+//        initFloatingActionButton();
         initNavigationView();
         initMainView();
     }
 
     private void initMainView() {
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.main_viewpager);
         List<Fragment> list = new ArrayList<>();
 
         SimpleFragment simpleFragment1 = SimpleFragment.newInstance(1, "First");
@@ -56,25 +62,23 @@ public class MainActivity extends BaseActivity
         list.add(simpleFragment4);
         list.add(simpleFragment5);
 
-        tabLayout.setupWithViewPager(viewPager, true);
+        tabLayout.setupWithViewPager(mainViewpager, true);
         SimpleFragmentAdapter adapter = new SimpleFragmentAdapter(getSupportFragmentManager(), list);
-        viewPager.setAdapter(adapter);
+        mainViewpager.setAdapter(adapter);
     }
 
     private void initNavigationView() {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        navView.setNavigationItemSelectedListener(this);
     }
 
     private void initDrawLayout() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.setDrawerListener(toggle);
         toggle.syncState();
     }
 
-    private void initFloatingActionButton() {
+  /*  private void initFloatingActionButton() {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +92,7 @@ public class MainActivity extends BaseActivity
                         }).show();
             }
         });
-    }
+    }*/
 
     @Override
     public void onBackPressed() {
@@ -141,8 +145,7 @@ public class MainActivity extends BaseActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }
