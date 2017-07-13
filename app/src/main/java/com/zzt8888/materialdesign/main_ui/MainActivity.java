@@ -44,14 +44,17 @@ public class MainActivity extends AppCompatActivity
         ViewPager viewPager = (ViewPager) findViewById(R.id.main_viewpager);
         List<Fragment> list = new ArrayList<>();
 
-        SimpleFragment simpleFragment1 = new SimpleFragment();
-//        simpleFragment1.
-        SimpleFragment simpleFragment2 = new SimpleFragment();
-        SimpleFragment simpleFragment3 = new SimpleFragment();
+        SimpleFragment simpleFragment1 = SimpleFragment.newInstance(1);
+        SimpleFragment simpleFragment2 = SimpleFragment.newInstance(2);
+        SimpleFragment simpleFragment3 = SimpleFragment.newInstance(3);
+        SimpleFragment simpleFragment4 = SimpleFragment.newInstance(4);
+        SimpleFragment simpleFragment5 = SimpleFragment.newInstance(5);
 
         list.add(simpleFragment1);
         list.add(simpleFragment2);
         list.add(simpleFragment3);
+        list.add(simpleFragment4);
+        list.add(simpleFragment5);
 
         tabLayout.setupWithViewPager(viewPager, true);
         SimpleFragmentAdapter adapter = new SimpleFragmentAdapter(getSupportFragmentManager(), list);

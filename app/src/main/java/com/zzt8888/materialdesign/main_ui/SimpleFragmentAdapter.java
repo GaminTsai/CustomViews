@@ -15,7 +15,7 @@ public class SimpleFragmentAdapter extends FragmentPagerAdapter {
         this.fragments = fragments;
     }
 
-    
+
 
     @Override
     public CharSequence getPageTitle(int position) {
