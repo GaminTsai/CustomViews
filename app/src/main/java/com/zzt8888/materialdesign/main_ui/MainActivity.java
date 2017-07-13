@@ -10,19 +10,19 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.zzt8888.com.zzt888.base.BaseActivity;
 import com.zzt8888.materialdesign.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
@@ -44,11 +44,11 @@ public class MainActivity extends AppCompatActivity
         ViewPager viewPager = (ViewPager) findViewById(R.id.main_viewpager);
         List<Fragment> list = new ArrayList<>();
 
-        SimpleFragment simpleFragment1 = SimpleFragment.newInstance(1);
-        SimpleFragment simpleFragment2 = SimpleFragment.newInstance(2);
-        SimpleFragment simpleFragment3 = SimpleFragment.newInstance(3);
-        SimpleFragment simpleFragment4 = SimpleFragment.newInstance(4);
-        SimpleFragment simpleFragment5 = SimpleFragment.newInstance(5);
+        SimpleFragment simpleFragment1 = SimpleFragment.newInstance(1, "First");
+        SimpleFragment simpleFragment2 = SimpleFragment.newInstance(2, "Second");
+        SimpleFragment simpleFragment3 = SimpleFragment.newInstance(3, "Third");
+        SimpleFragment simpleFragment4 = SimpleFragment.newInstance(4, "Fourth");
+        SimpleFragment simpleFragment5 = SimpleFragment.newInstance(5, "Fifth");
 
         list.add(simpleFragment1);
         list.add(simpleFragment2);
@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
