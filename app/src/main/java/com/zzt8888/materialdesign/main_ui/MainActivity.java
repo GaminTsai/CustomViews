@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity
     private void initMainView() {
         List<Fragment> list = new ArrayList<>();
 
-        SimpleFragment simpleFragment1 = SimpleFragment.newInstance(1, "First");
+        MainFragment simpleFragment1 = MainFragment.newInstance("First");
         SimpleFragment simpleFragment2 = SimpleFragment.newInstance(2, "Second");
         SimpleFragment simpleFragment3 = SimpleFragment.newInstance(3, "Third");
         SimpleFragment simpleFragment4 = SimpleFragment.newInstance(4, "Fourth");

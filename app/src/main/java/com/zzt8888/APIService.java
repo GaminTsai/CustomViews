@@ -25,7 +25,7 @@ public interface APIService {
      */
 
     @GET("/history/content/{sum}/{index}")
-    Observable<ContentBean> getHistoryContent(@Field("sum") String sum, @Field("index") String index);
+    Observable<ContentBean> getHistoryContent(@Field("sum") int sum, @Field("index") int index);
 
 
     /**
@@ -35,7 +35,7 @@ public interface APIService {
      * 第几页：数字，大于 0
      */
     @GET("/data/{category}/{sum}/{index}")
-    Observable<TypeDataBean> getDataByCategory(@Field("category") String category, @Field("sum") String sum, @Field("index") String index);
+    Observable<TypeDataBean> getDataByCategory(@Field("category") String category, @Field("sum") int sum, @Field("index") int index);
 
 
 }
