@@ -3,14 +3,15 @@ package com.zzt8888.materialdesign.main_ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.zzt8888.base.BaseFragment;
 import com.zzt8888.beans.TypeDataBean;
+import com.zzt8888.listeners.OnRcvScrollListener;
 import com.zzt8888.materialdesign.R;
 
 import javax.inject.Inject;
@@ -52,15 +53,31 @@ public class MainFragment extends BaseFragment implements IWelfare {
         super.onActivityCreated(savedInstanceState);
         present.attachView(this);
         initUi();
-        present.loadData(10,1);
+        present.loadData(20, 1);
     }
 
     private void initUi() {
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
+
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recycleView.setLayoutManager(layoutManager);
 
         adapter = new WelfareAdapter(getContext());
         recycleView.setAdapter(adapter);
+
+
+        freshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                freshLayout.setRefreshing(false);
+            }
+        });
+
+        recycleView.addOnScrollListener(new OnRcvScrollListener() {
+            @Override
+            public void onBottom() {
+                present.loadData(20,adapter.getItemCount()/20);
+            }
+        });
 
     }
 
@@ -73,16 +90,19 @@ public class MainFragment extends BaseFragment implements IWelfare {
 
     @Override
     public void loading() {
-        freshLayout.setRefreshing(true);
+        if (freshLayout != null) freshLayout.setRefreshing(true);
     }
 
     @Override
     public void showResult(TypeDataBean bean) {
+        dismissLoading();
+        if (adapter != null)
         adapter.addAll(bean.getResults());
     }
 
     @Override
     public void dismissLoading() {
+        if (freshLayout != null)
         freshLayout.setRefreshing(false);
     }
 

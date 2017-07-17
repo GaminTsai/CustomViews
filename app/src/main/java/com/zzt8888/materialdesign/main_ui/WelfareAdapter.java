@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.zzt8888.beans.TypeDataBean;
@@ -45,7 +46,10 @@ public class WelfareAdapter extends RecyclerView.Adapter<WelfareAdapter.WelfareH
     public void onBindViewHolder(WelfareHolder holder, int position) {
         TypeDataBean.ResultsEntity entity = source.get(position);
         String url = entity.getUrl();
-        Glide.with(context).load(url).into(holder.imageView);
+
+        Glide.with(context).load(url).into(holder.imageView).onLoadStarted(context.getDrawable(R.mipmap.ic_launcher));
+        holder.dateTime.setText(entity.getWho());
+        holder.descContext.setText(entity.getDesc());
     }
 
     @Override
@@ -56,6 +60,10 @@ public class WelfareAdapter extends RecyclerView.Adapter<WelfareAdapter.WelfareH
     class WelfareHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.image_view)
         ImageView imageView;
+        @BindView(R.id.desc_context)
+        TextView descContext;
+        @BindView(R.id.date_time)
+        TextView dateTime;
 
         public WelfareHolder(View view) {
             super(view);

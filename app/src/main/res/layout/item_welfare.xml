@@ -1,13 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="2dp"
     android:elevation="10dp">
 
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
+    <RelativeLayout
+        android:layout_margin="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.zzt8888.widgets.SquareImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#3c000000"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/desc_context"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="总要有一些文字上的描述"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/date_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="2017/7/17"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </android.support.v7.widget.CardView>

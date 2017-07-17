@@ -28,6 +28,7 @@ public class TypeDataPresent implements Presenter<IWelfare> {
     }
 
     public void loadData(int count,int index){
+        iWelfare.loading();
         apiService.getDataByCategory("福利", count, index)
         .compose(RxSchedulersHelper.io_main())
         .subscribe(typeDataBean -> {iWelfare.showResult(typeDataBean);},
