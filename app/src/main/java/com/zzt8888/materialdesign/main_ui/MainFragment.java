@@ -61,7 +61,7 @@ public class MainFragment extends BaseFragment implements IWelfare {
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recycleView.setLayoutManager(layoutManager);
 
-        adapter = new WelfareAdapter(getContext());
+        adapter = new WelfareAdapter(getActivity());
         recycleView.setAdapter(adapter);
 
 

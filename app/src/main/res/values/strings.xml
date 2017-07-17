@@ -5,4 +5,8 @@
     <string name="navigation_drawer_close">Close navigation drawer 1</string>
 
     <string name="action_settings">Settings</string>
+
+
+
+    <string name="transition_image">image_transition</string>
 </resources>
