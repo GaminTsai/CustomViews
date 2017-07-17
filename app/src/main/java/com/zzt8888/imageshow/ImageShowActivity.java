@@ -25,6 +25,10 @@ import com.zzt8888.tools.DrawableTool;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
+/**
+ * 图片支持放大，支持查看下一张
+ */
 public class ImageShowActivity extends BaseActivity {
 
     private static final String IMAGE_URL = "IMAGE_URL";
@@ -82,6 +86,7 @@ public class ImageShowActivity extends BaseActivity {
                         }
                         int backGroundColor = swatch.getRgb();
                         mainLayout.setBackgroundColor(backGroundColor);
+                        getWindow().setStatusBarColor(backGroundColor);
 
                     }
                 });
