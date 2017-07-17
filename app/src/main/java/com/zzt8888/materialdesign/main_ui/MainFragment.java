@@ -2,7 +2,6 @@ package com.zzt8888.materialdesign.main_ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zzt8888.base.BaseFragment;
 import com.zzt8888.beans.TypeDataBean;
 import com.zzt8888.materialdesign.R;
 
@@ -19,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class MainFragment extends Fragment implements IWelfare {
+public class MainFragment extends BaseFragment implements IWelfare {
 
     @BindView(R.id.recycle_view)
     RecyclerView recycleView;
@@ -32,6 +32,12 @@ public class MainFragment extends Fragment implements IWelfare {
 
     private Unbinder unbinder;
     private WelfareAdapter adapter;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getFragmentComponent().inject(this);
+    }
 
     @Nullable
     @Override

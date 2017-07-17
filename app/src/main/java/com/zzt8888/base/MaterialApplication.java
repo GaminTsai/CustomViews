@@ -17,4 +17,8 @@ public class MaterialApplication extends Application {
                 .build();
         mComponent.inject(this);
     }
+
+    public ApplicationComponent getComponent() {
+        return mComponent;
+    }
 }
