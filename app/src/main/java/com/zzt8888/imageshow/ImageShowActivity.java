@@ -18,6 +18,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.zzt8888.base.BaseActivity;
 import com.zzt8888.materialdesign.R;
 import com.zzt8888.tools.DrawableTool;
@@ -33,7 +34,7 @@ public class ImageShowActivity extends BaseActivity {
 
     private static final String IMAGE_URL = "IMAGE_URL";
     @BindView(R.id.image_view)
-    ImageView imageView;
+    PhotoView imageView;
 
     @BindView(R.id.main_layout)
     LinearLayout mainLayout;
