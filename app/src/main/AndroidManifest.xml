@@ -35,6 +35,9 @@
         <activity android:name="com.zzt8888.imageshow.ImageShowActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name="com.zzt8888.FunVideo.FunVideoActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

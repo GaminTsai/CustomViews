@@ -48,7 +48,7 @@ public class WelfareAdapter extends RecyclerView.Adapter<WelfareAdapter.WelfareH
         TypeDataBean.ResultsEntity entity = source.get(position);
         String url = entity.getUrl();
 
-        Glide.with(context).load(url).into(holder.imageView).onLoadStarted(context.getDrawable(R.mipmap.ic_launcher));
+        Glide.with(context).load(url + "?imageView2/0/w/200").into(holder.imageView).onLoadStarted(context.getDrawable(R.mipmap.ic_launcher));
         holder.dateTime.setText(entity.getWho());
         holder.descContext.setText(entity.getDesc());
         holder.mainView.setOnClickListener(v -> {

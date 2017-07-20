@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.zzt8888.FunVideo.FunVideoActivity;
 import com.zzt8888.base.BaseActivity;
 import com.zzt8888.materialdesign.R;
 
@@ -78,21 +79,6 @@ public class MainActivity extends BaseActivity
         toggle.syncState();
     }
 
-  /*  private void initFloatingActionButton() {
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Use Indefinite to show SnackBar,click to hide it", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("Action", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Toast.makeText(MainActivity.this, "you have click the snackBar", Toast.LENGTH_SHORT).show();
-                            }
-                        }).show();
-            }
-        });
-    }*/
 
     @Override
     public void onBackPressed() {
@@ -142,7 +128,7 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
-
+            FunVideoActivity.startActivity(MainActivity.this);
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

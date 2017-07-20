@@ -12,7 +12,7 @@ import com.zzt8888.constants.Constants;
 
 /**
  * @author Gamin Tsai
- * @brief recyle view 滚动监听器
+ * @brief recycle view 滚动监听器
  * @date 2016/6/12
  */
 public abstract class OnRcvScrollListener extends RecyclerView.OnScrollListener implements OnBottomListener {
